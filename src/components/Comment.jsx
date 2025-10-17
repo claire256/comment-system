@@ -14,5 +14,5 @@ export default function Comment({ username, content, time }) {
         <span className="text-xs text-gray-400 mt-1">{time}</span>
       </div>
     </div>
-  );
+  ); 
 }

@@ -1,35 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import CommentList from "./components/CommentList";
+import CommentForm from "./components/CommentForm";
+import './index.css' ;
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [comments, setComments] = useState([
+    { id: 1, username: "claire", content: "This is so cool!", created_at: "2h ago" },
+    { id: 2, username: "john", content: "Love this post!", created_at: "1h ago" },
+  ]);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="max-w-lg mx-auto mt-10 bg-white rounded-2xl shadow-lg overflow-hidden">
+      <div className="p-4 border-b border-gray-200">
+        <h1 className="text-xl font-semibold">Comments</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <CommentList comments={comments} />
+      <CommentForm onSubmit={(e) => e.preventDefault()} />
+    </div>
+  );
 }
-
-export default App
