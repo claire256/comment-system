@@ -1,4 +1,10 @@
-export default function CommentForm({ onSubmit }) {
+
+export default function CommentForm({ onSubmit, comments, setComments }) {
+ 
+  const handleOnChange =(e)=>{
+    setComments(e.target.value)
+  }
+  
   return (
     <form
       onSubmit={onSubmit}
@@ -8,6 +14,8 @@ export default function CommentForm({ onSubmit }) {
         type="text"
         placeholder="Add a comment..."
         className="flex-1 p-2 rounded-full border border-gray-300 focus:outline-none focus:ring-1 focus:ring-gray-400"
+        onChange ={handleOnChange}
+        value={comments}
       />
       <button
         type="submit"

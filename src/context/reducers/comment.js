@@ -15,4 +15,4 @@ const commentReducer = (state, action)=>{
   }
 }
 
-export default commentReducer
+export default commentReducer;

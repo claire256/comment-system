@@ -5,9 +5,12 @@ import './index.css' ;
 
 export default function App() {
   const [comments, setComments] = useState([
-    { id: 1, username: "claire", content: "This is so cool!", created_at: "2h ago" },
-    { id: 2, username: "john", content: "Love this post!", created_at: "1h ago" },
+    // { id: 1, username: "claire", content: "This is so cool!", created_at: "2h ago" },
+    // { id: 2, username: "john", content: "Love this post!", created_at: "1h ago" },
   ]);
+  const handleSubmit = (e)=>{
+     e.preventDefault()
+  }
 
   return (
     <div className="max-w-lg mx-auto mt-10 bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -15,7 +18,7 @@ export default function App() {
         <h1 className="text-xl font-semibold">Comments</h1>
       </div>
       <CommentList comments={comments} />
-      <CommentForm onSubmit={(e) => e.preventDefault()} />
+      <CommentForm onSubmit={handleSubmit} setComments={setComments} comments={comments} />
     </div>
   );
 }
