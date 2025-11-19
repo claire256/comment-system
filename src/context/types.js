@@ -1,2 +1,4 @@
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_COMMENT_ERROR = 'ADD_COMMENT_ERROR';
+export const GET_COMMENTS = 'GET_COMMENTS';
+export const GET_COMMENTS_ERROR = 'GET_COMMENTS_ERROR';

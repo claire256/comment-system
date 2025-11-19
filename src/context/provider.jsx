@@ -1,9 +1,10 @@
 import { createContext, useReducer } from "react";
+import commentReducer, { initialCommentState } from "./reducers/comment";
 
-const globalContext = createContext();
+export const globalContext = createContext();
 
 const Provider = ({children})=>{
-    const [commentState, commentDispatch] = useReducer()
+    const [commentState, commentDispatch] = useReducer(commentReducer, initialCommentState)
     return (
         <globalContext.Provider value={{commentState, commentDispatch}}>
             {children}
