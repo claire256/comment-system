@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import CommentList from "./components/CommentList";
 import CommentForm from "./components/CommentForm";
 import './index.css' ;
-import { addComment, getComments } from "./context/actions/comments";
+import { addComment, deleteComment, getComments } from "./context/actions/comments";
 import { globalContext } from "./context/provider";
 import { ADD_COMMENT, ADD_COMMENT_ERROR } from "./context/types";
 
@@ -36,6 +36,10 @@ export default function App() {
 
     await addComment(commentText, commentDispatch)
     setCommentText('')
+  }
+
+  const handleDeleteComment = async()=>{
+    await deleteComment(commentDispatch)
   }
 
 

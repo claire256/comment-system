@@ -1,4 +1,4 @@
-export default function Comment({ content, time }) {
+export default function Comment({ content, time, handleDelete }) {
   return (
     <div className="flex items-start gap-3 p-3 border-b border-gray-200">
    
@@ -7,6 +7,7 @@ export default function Comment({ content, time }) {
           <span>{content}</span>
         </div>
         <span className="text-xs text-gray-400 mt-1">{time}</span>
+        <button type='submit' onSubmit={handleDelete} className="text-xs bg-red-500 text-white mt-2 rounded-2xl">del</button>
       </div>
     </div>
   ); 
