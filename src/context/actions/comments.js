@@ -22,11 +22,11 @@ dispatch({type: GET_COMMENTS_ERROR, payload: error.message | error.response?.dat
 
 export const deleteComment = async(commentId, dispatch)=>{
   try{
-    const response = await axios.delete(`http://localhost:5000/api/${commentId}`)
-    console.log('response', response)
-    dispatch({type: DELETE_COMMENT, payload: response.data})
+    const response = await axios.delete(`http://localhost:5000/api/comments/${commentId}`,)
+    console.log('response', response, commentId)
+    dispatch({type: DELETE_COMMENT, payload: commentId})
   }catch(error){
       console.log('error', error)
-   dispatch({type: DELETE_COMMENT_ERROR, payload: error.response?.data | error.message})
+   dispatch({type: DELETE_COMMENT_ERROR, payload: error?.response?.data | error?.message})
   }
 }

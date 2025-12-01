@@ -38,8 +38,8 @@ export default function App() {
     setCommentText('')
   }
 
-  const handleDeleteComment = async()=>{
-    await deleteComment(commentDispatch)
+  const handleDeleteComment = async(commentId)=>{
+    await deleteComment(commentId, commentDispatch)
   }
 
 
@@ -49,7 +49,7 @@ export default function App() {
       <div className="p-4 border-b border-gray-200">
         <h1 className="text-xl font-semibold">Comments</h1>
       </div>
-      <CommentList comments={ commentState.getComments } />
+      <CommentList comments={ commentState.getComments } onDelete={handleDeleteComment} />
       <CommentForm onSubmit={handleSubmit} setCommentText={setCommentText} commentText={commentText} />
     </div>
   );

@@ -19,7 +19,7 @@ const commentReducer = (state, action)=>{
     case GET_COMMENTS_ERROR:
       return {...state, getCommentsError: action.payload, getComments: null}
     case DELETE_COMMENT:
-    return {...state, deleteComment: action.payload, getComments: action.payload.filter((comment)=>comment.id === action.payload), deleteCommentError: null}
+    return {...state, deleteComment: action.payload, getComments: state.getComments.filter((comment)=>comment.id !== action.payload), deleteCommentError: null}
     case DELETE_COMMENT_ERROR:
       return {...state, deleteCommentError: action.payload, deleteComment: null}
     default:

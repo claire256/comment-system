@@ -1,6 +1,6 @@
 import Comment from "./Comment";
 
-export default function CommentList({ comments }) {
+export default function CommentList({ comments, onDelete }) {
   return (
     <div className="max-h-80 overflow-y-auto ">
       {comments.length>0 ? 
@@ -9,6 +9,8 @@ export default function CommentList({ comments }) {
        key={comment.id}
        content={comment.content}
         time={new Date(comment.created_at).toLocaleString()}
+        onDelete ={onDelete}
+        commentId={comment.id}
         />
       )
       : (
